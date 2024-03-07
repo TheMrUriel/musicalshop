@@ -1,0 +1,296 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acordes Brillantes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'musicalapp/a.css'%}" />
+  </head>
+  <body>
+    <header class="wrapper bimage">
+      <img class="musicalapp" src={%static 'musicalapp/Logo.png '%} alt="Acordes
+      Brillantes" />
+
+      <h1 class="logo">Acordes Brillantes</h1>
+      <h1 class="logo_2">Acordes Brillantes</h1>
+    </header>
+
+    <!-- ========================================================================= -->
+
+    <div class="main_dropdown_container">
+      <div class="dropdown_logo_bar_li" onclick="toggle_bar()" id="toggle_bar">
+        <i class="fas fa-bars dropdown_logo_bar bar"></i>
+      </div>
+
+      <nav class="navbar_container toggle">
+        <div class="main_navbar">
+          <ul class="main_navbar_ul">
+            <li class="navbar_level_1_li">
+              <a href="/home/" class="navbar_level_1_link">INICIO</a>
+            </li>
+            <li class="navbar_level_1_li">
+              <a class="navbar_level_1_link">PRODUCTOS</a>
+              <div class="mega_dropdown_container">
+                <div class="row row1">
+                  <h2 class="mega_header">ACCESORIOS</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/accesorios/" class="mega_links"
+                        >Accesorios</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row2">
+                  <h2 class="mega_header">AMPLIFICADOR</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/amplificadores/" class="mega_links"
+                        >Amplificador</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row3">
+                  <h2 class="mega_header">BAJO</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/bajos-electricos/"
+                        class="mega_links"
+                        >Electrico</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row4">
+                  <h2 class="mega_header">PIANOS</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/piano/" class="mega_links"
+                        >Piano</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row5">
+                  <h2 class="mega_header">VIOLÍN</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/violines/" class="mega_links"
+                        >Violín</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row6">
+                  <h2 class="mega_header">INSTRUMENTOS DE VIENTO</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/viento/" class="mega_links"
+                        >Instrumentos de viento</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row7">
+                  <h2 class="mega_header">PEDALES Y EFECTOS</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/pedales-y-efectos/"
+                        class="mega_links"
+                        >Pedales y efectos</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row8">
+                  <h2 class="mega_header">BATERIAS</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/baterias/" class="mega_links"
+                        >Bateria</a
+                      >
+                    </li>
+                    <li class="mega_li">
+                      <a href="/instrumentos/platillos/" class="mega_links"
+                        >Platillos</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row9">
+                  <h2 class="mega_header">GUITARRAS</h2>
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/guitarras-acusticas/"
+                        class="mega_links"
+                        >Acusticas</a
+                      >
+                    </li>
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/guitarras-electricas/"
+                        class="mega_links"
+                        >Electricas</a
+                      >
+                    </li>
+
+                    <li class="mega_li">
+                      <a href="/instrumentos/ukuleles/" class="mega_links"
+                        >Ukeleles</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="navbar_level_1_li">
+              MARCAS
+              <div class="mega_dropdown_container">
+                <div class="row row1">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Yamaha/" class="mega_header"
+                        >Yamaha</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="row row2">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Squier/" class="mega_header"
+                        >Squier</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row3">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/marca/Serpentario/"
+                        class="mega_header"
+                        >Serpentario</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row4">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Paiste/" class="mega_header"
+                        >Paiste</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row5">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/New Beat" class="mega_header"
+                        >New Beat</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row6">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Bamboo/" class="mega_header"
+                        >Bamboo</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row7">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Line6/" class="mega_header"
+                        >Line6</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row8">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a href="/instrumentos/marca/Fender/" class="mega_header"
+                        >Fender</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="row row9">
+                  <ul class="mega_ul li_border">
+                    <li class="mega_li">
+                      <a
+                        href="/instrumentos/marca/Daddario/"
+                        class="mega_header"
+                        >Daddario</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="navbar_level_1_li">
+              <a class="navbar_level_1_link"> {{ username|upper }}</a>
+
+              <ul class="dropdown_level_1">
+                <li class="navbar_level_2_li">
+                  <a href="/usuario/" class="mega_header">DATOS DE USUARIO</a>
+                </li>
+                <li class="navbar_level_2_li">
+                  <a href="/carrito/" class="mega_header">CARRITO</a>
+                </li>
+                <li class="navbar_level_2_li">
+                  <a href="/usuario/historial/" class="mega_header"
+                    >HISTORIAL DE COMPRA</a
+                  >
+                </li>
+                <li class="navbar_level_2_li">
+                  <a href="/logout/" class="mega_header">LOGOUT</a>
+                </li>
+              </ul>
+            </li>
+            {% else %}
+            <li class="navbar_level_1_li">
+              <a href="/login/" class="navbar_level_1_link"> LOGIN</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <script>
+      let toggle = document.getElementsByClassName("toggle_bar");
+
+      function toggle_bar() {
+        let element = document.querySelector(".toggle");
+        element.classList.toggle("show");
+
+        let element2 = document.querySelector(".bar");
+        element2.classList.toggle("bar2");
+      }
+    </script>
+    {% block content %} {% endblock %}
+  </body>
+</html>

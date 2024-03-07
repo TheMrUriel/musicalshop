@@ -1,0 +1,214 @@
+{% extends 'Conex/a.html' %} {% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {%load static%}
+  <link rel="stylesheet" href="{% static 'musicalapp/b.css'%}" />
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet">
+</head>
+<body>
+  <!--header section-->
+  <main>
+    <a href="/instrumentos/" style="text-decoration: none;">
+    <section id="hero">
+      <h4>BUENOS PRECIOS</h4>
+      <h2 >INSTRUMENTOS DE MUSICA</h2>
+      <h1 style="padding-top: 40px">Acordes Brillantes</h1>
+    </section>
+
+    <section id="features" class="section-p1">
+      <div class="lista">
+
+        <a href="/instrumentos/marca/yamaha/">
+        <div class="f-box">
+          <img src="https://i.pinimg.com/564x/35/18/48/35184802e7fd8aaad3a84bef34ea37c6.jpg" alt="Yamaha" />
+          <h6><a href="/instrumentos/marca/yamaha/" style= "text-decoration: none;">Yamaha</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/squier/">
+        <div class="f-box">
+          <img src="https://iconape.com/wp-content/png_logo_vector/squier.png" alt="Squier" />
+          <h6><a href="/instrumentos/marca/squier/" style= "text-decoration: none;">Squier</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/bamboo/">
+        <div class="f-box">
+          <img src="https://t4.ftcdn.net/jpg/02/89/64/73/360_F_289647381_ASbQbqns7uoun6EXoLcFMWw5ySbWmuKn.jpg" alt="Bamboo" />
+          <h6><a href="/instrumentos/marca/bamboo/" style= "text-decoration: none;">Bamboo</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/daddario/">
+        <div class="f-box">
+          <img src="https://i.pinimg.com/originals/67/11/2d/67112d6deffd38848332d09a3cbef988.gif" alt="daddario" />
+          <h6><a href="/instrumentos/marca/daddario/" style= "text-decoration: none;">Daddario</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/fender/">
+        <div class="f-box">
+          <img src="https://1000marcas.net/wp-content/uploads/2020/02/Fender-Logo.jpg" alt="Fender" />
+          <h6><a href="/instrumentos/marca/fender/" style= "text-decoration: none;">Fender</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/line6/">
+        <div class="f-box">
+          <img src="https://l6c-acdn2.line6.net/data/6/0a020a4191e85d4b0d3e91e88/image/jpeg/file.jpeg" alt="Line6" />
+          <h6><a href="/instrumentos/marca/line6/" style= "text-decoration: none;">Line6</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/new_beat/">
+        <div class="f-box">
+          <img src="https://www.nicepng.com/png/detail/75-753330_new-beat-logo.png" alt="New Beat" />
+          <h6><a href="/instrumentos/marca/new_beat/" style= "text-decoration: none;">New Beat</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/paiste/">
+        <div class="f-box">
+          <img src="https://www.paiste.com/assets/Dateien/Files/Paiste_Logo_Black_RGB.png" alt="paiste" />
+          <h6><a href="/instrumentos/marca/paiste/" style= "text-decoration: none;">Paiste</a></h6>
+        </div>
+
+        <a href="/instrumentos/marca/serpentario/">
+        <div class="f-box">
+          <img src="https://pepismusic.mx/cdn/shop/collections/SERPENTARIO_LOGO_NEGRO_1000x221.png?v=1614104451" alt="Serpentario" style="
+          max-width: 150px;
+          max-height: 150px;
+          order-radius: 35px;
+          box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.15);
+        "/>
+          <h6><a href="/instrumentos/marca/serpentario/" style= "text-decoration: none;">Serpentario</a></h6>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="product-section" class="section-p1">
+      <h1>Productos populares</h1>
+      <p>Instrumentos de calidad</p>
+      <div class="pro-collection">
+        {% for producto in productos_populares %}
+      <div class="product-cart">
+        <a style= "text-decoration: none;" href ="{% url 'musicalapp:detalle_instrumento' id=producto.id %}">
+        <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" />
+        <span>{{ producto.marca }}</span>
+        <h4>{{ producto.nombre }}</h4>
+        <div class="stars">
+          {% if producto.Puntuacion >= 1 %}
+          <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+      
+          {% if producto.Puntuacion >= 2 %}
+          <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+      
+          {% if producto.Puntuacion >= 3 %}
+          <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+      
+          {% if producto.Puntuacion >= 4 %}
+          <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+      
+          {% if producto.Puntuacion >= 5 %}
+          <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+        </div>
+        <h4 class="price">${{ producto.precio }}</h4>
+        <a href="#"><i class="fa-solid fa-cart-shopping buy-icon fa-beat"></i></a>
+      </div>
+      {% endfor %}
+      </div>
+    </section>
+
+
+
+    <section id="banners" class="section-p1">
+      <div class="big-banners">
+        <a href="/instrumentos/">
+          <div class="big-banners-1 ">
+            <h4>Acustico/Electrico</h4>
+            <h2>Guitarras</h2>
+            <span>Calidad en guitarras</span>
+            
+          </div>
+        </a>
+        <a href="/instrumentos/piano">
+          <div class="big-banners-2">
+            <h4>Teclas</h4>
+            <h2>Piano</h2>
+            <span>Sonido de gran calidad</span>
+          </div>
+        </a>
+      </div>
+      <div class="big-banners">
+        <a href="/instrumentos/bajos-electricos">
+          <div class="big-banners-3">
+            <h4>Electrico</h4>
+            <h2>Bajos</h2>
+            <span>Alto sonido</span>
+          </div>
+        </a>
+        <a href="/instrumentos/baterias">
+          <div class="big-banners-4">
+            <h4>Bateria/platillos</h4>
+            <h2>Baterias</h2>
+            <span>Un gran BONG</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="small-banners">
+        <a href="/instrumentos/accesorios">
+          <div class="small-banners-1">
+            <h2>Accesorios</h2>
+            <h5>Uno para uno</h5>
+          </div>
+        </a>  
+
+        <div class="small-banners-2">
+          <h2>Amplificador</h2>
+          <h5>Amplifica el sonido</h5>
+        </div>
+
+        <div class="small-banners-3">
+          <h2>Pedales y efectos</h2>
+          <h5>Calidad de sonido</h4>
+        </div>
+        
+        
+      </div>
+      <div class="small-banners">
+        <div class="small-banners-4">
+          <h2>Cuerdas</h2>
+          <h5>Guitarra acustica</h5>
+        </div>
+
+        <div class="small-banners-5">
+          <h2>Cuerdas</h2>
+          <h5>Guitarra electica</h5>
+        </div>
+
+        <div class="small-banners-6">
+          <h2>Platillos</h2>
+          <h5>Bateria</h5>
+        </div>
+          
+      </div>
+      
+    </section>
+
+
+
+  </main>
+
+</body>
+{% endblock %}

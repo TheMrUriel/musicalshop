@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Acordes Brillantes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    {%load static%}
+    <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="box-area">
+      <header>
+        <div class="wrapper">
+          <div class="logo">
+            <img src={%static 'musicalapp/Logo.png '%} alt="Acordes Brillantes"
+            />
+            <a style="text-decoration: none" href="/home/"
+              >Acordes Brillantes</a
+            >
+          </div>
+          <nav id="primary_nav_wrap">
+            <ul>
+              <li class="current-menu-item">
+                <a href="/home/">INICIO</a>
+              </li>
+              <li>
+                <a href="/instrumentos/">PRODUCTOS</a>
+                <ul>
+                  <li>
+                    <a href="/instrumentos/accesorios/">Accesorios</a>
+                  </li>
+
+                  <li>
+                    <a href="/instrumentos/amplificadores/">Amplificador</a>
+                  </li>
+
+                  <li>
+                    <a href="#">Bajo</a>
+                    <ul>
+                      <li>
+                        <a href="/instrumentos/bajos-electricos/">Electrico</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a href="/instrumentos/baterias/">Bateria</a>
+                    <ul>
+                      <li>
+                        <a href="/instrumentos/platillos/">Platillos</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a href="#">Guitarra</a>
+                    <ul>
+                      <li>
+                        <a href="/instrumentos/guitarras-acusticas/"
+                          >Acustica</a
+                        >
+                        <ul>
+                          <li>
+                            <a
+                              href="/instrumentos/guitarras-acusticas-cuerdas-para-acustica/"
+                              >Cuerda</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="/instrumentos/guitarras-electricas/"
+                          >Electrica</a
+                        >
+                        <ul>
+                          <li>
+                            <a
+                              href="/instrumentos/guitarras-electricas-cuerdas/"
+                              >Cuerda</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="/instrumentos/viento/">Instrumentos de viento</a>
+                  </li>
+                  <li>
+                    <a href="/instrumentos/pedales-y-efectos/"
+                      >Pedales y efectos</a
+                    >
+                  </li>
+
+                  <li>
+                    <a href="/instrumentos/piano/">Piano</a>
+                  </li>
+
+                  <li>
+                    <a href="/instrumentos/ukuleles/">Ukelele</a>
+                  </li>
+
+                  <li>
+                    <a href="/instrumentos/violines/">Violín</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">MARCAS</a>
+                <ul>
+                  <li><a href="/instrumentos/marca/Yamaha/">Yamaha</a></li>
+                  <li><a href="/instrumentos/marca/Squier/">Squier</a></li>
+                  <li>
+                    <a href="/instrumentos/marca/Serpentario/">Serpentario</a>
+                  </li>
+                  <li><a href="/instrumentos/marca/Paiste/">Paiste</a></li>
+                  <li>
+                    <a href="/instrumentos/marca/New%20Beat/">New Beat</a>
+                  </li>
+                  <li><a href="/instrumentos/marca/Line6/">Line6</a></li>
+                  <li><a href="/instrumentos/marca/Fender/">Fender</a></li>
+                  <li><a href="/instrumentos/marca/Daddario/">Daddario</a></li>
+                  <li><a href="/instrumentos/marca/Bamboo/">Bamboo</a></li>
+                </ul>
+              </li>
+              <li>
+                {% if user.is_authenticated %}
+                <a href="/usuario/"> {{ username|upper }}</a>
+                <ul>
+                  <li><a href="/usuario/">DATOS DEL USUARIO</a></li>
+                  <li><a href="/carrito/">CARRITO</a></li>
+                  <li><a href="">HISTORIAL DE COMPRA</a></li>
+                  <li><a href="/logout/">LOGOUT</a></li>
+                </ul>
+                {% else %}
+                <a href="/login/" id="iniciar">LOGIN</a>
+                {% endif %}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+    {% block content %} {% endblock %}
+  </body>
+</html>

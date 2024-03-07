@@ -1,0 +1,148 @@
+{% extends 'Conex/instrumentos.html' %} {% block content %}
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'musicalapp/prueba.css' %}" />
+  <link rel="stylesheet" href="{% static 'musicalapp/instrumentos.css' %}" />
+  <script src="{% static 'js/prueba.js' %}"></script>
+  <meta charset="utf-8" />
+  <title>Product Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
+<div style="padding-top: 150px" class="container">
+  <div class="row">
+    <div class="col-lg-5 col-md-5">
+      <div class="main-image">
+        <img
+          id="thumbnail"
+          src="{{ instrumento.imagen }} "
+          alt="{{ instrumento.nombre }}"
+        />
+      </div>
+      <div class="pic-center">
+        <div class="stars">
+          {% if instrumento.Puntuacion >= 1 %}
+          <i
+            class="fa-solid fa-star fa-spin"
+            style="
+              --fa-animation-duration: 3s;
+              --fa-animation-timing: ease-in-out;
+            "
+          ></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %} {% if instrumento.Puntuacion >= 2 %}
+          <i
+            class="fa-solid fa-star fa-spin"
+            style="
+              --fa-animation-duration: 3s;
+              --fa-animation-timing: ease-in-out;
+            "
+          ></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %} {% if instrumento.Puntuacion >= 3 %}
+          <i
+            class="fa-solid fa-star fa-spin"
+            style="
+              --fa-animation-duration: 3s;
+              --fa-animation-timing: ease-in-out;
+            "
+          ></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %} {% if instrumento.Puntuacion >= 4 %}
+          <i
+            class="fa-solid fa-star fa-spin"
+            style="
+              --fa-animation-duration: 3s;
+              --fa-animation-timing: ease-in-out;
+            "
+          ></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %} {% if instrumento.Puntuacion >= 5 %}
+          <i
+            class="fa-solid fa-star fa-spin"
+            style="
+              --fa-animation-duration: 3s;
+              --fa-animation-timing: ease-in-out;
+            "
+          ></i>
+          {% else %}
+          <i class="fa-regular fa-star"></i>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 col-md-7">
+      <div class="section-heading">
+        <h2 class="title">{{ instrumento.nombre }}</h2>
+        <h6 class="menuh6">${{ instrumento.precio }}</h6>
+      </div>
+      <div class="section-body">
+        <p>{{ instrumento.texto }}</p>
+        <div class="quantity">
+          <input
+            type="button"
+            id="remove_0"
+            onclick="CalculateTotal(this,0)"
+            value="-"
+            class="inp-pos"
+          />
+          <input
+            type="text"
+            placeholder="1"
+            name="quantity"
+            id="quantity_0"
+            onchange="CalculateTotal(this,0)"
+            class="inp-pos"
+            value="1"
+            readonly
+          />
+          <input
+            type="button"
+            id="add_0"
+            onclick="CalculateTotal(this,0)"
+            value="+"
+            class="inp-pos"
+          />
+          <button
+            type="button"
+            id="add-to-cart"
+            class="btn btn-lg"
+            data-toggle="modal"
+            data-target="#myModal1"
+          >
+            Agregar<i class="material-icons cart">shopping_cart</i>
+          </button>
+        </div>
+
+        {% for item in instrumento.descripcion %}
+        <div class="product-info">
+          <ul>
+            <li><a class="grey">{{ item }}</a></li>
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2 class="title">Comentarios</h2>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'Conex/a.html' %} {% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {%load static%}
+  <link rel="stylesheet" href="{% static 'musicalapp/historial.css'%}" />
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet">
+</head>
+<body>
+
+
+  <div class="content-area">
+    <div class="aww">
+      <section class="product-section" class="section-p1">
+        <h1 style="font-size:60px; padding-bottom:20px">Historial de Compra</h1>
+        <div class="pro-collection">
+
+            {% for compra in historial_compras %}
+          <div class="product-cart">
+            
+            <img src="{{ compra.lista_compra.intrumento.imagen }}" alt="{{ compra.lista_compra.intrumento.nombre }}" />
+            <span>{{ compra.lista_compra.intrumento.marca }}</span>
+            <h4>{{ compra.lista_compra.intrumento.nombre }}</h4>
+            
+            <h4 class="price">{{ compra.fecha_compra }}</h4>
+            <h4 class="price">Cantidad: {{ compra.lista_compra.cantidad }}</h4>
+          </div>
+          {% endfor %}
+
+
+      </section>
+    </div>
+  </div>
+  
+</body>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<body>
+    <div class="container">
+      <h1>Lista de Instrumentos</h1>
+      {% for instrumento in instrumentos %}
+      <div class="instrumento">
+        <div class="nombre">{{ instrumento.nombre }}</div>
+        <div class="marca">{{ instrumento.marca }}</div>
+        <div class="precio">{{ instrumento.precio }}</div>
+        {% if instrumento.texto != 'N/A' %}
+        <div class="texto">{{ instrumento.texto }}</div>
+        {% endif %}
+        <ul class="descripcion">
+          {% for item in instrumento.descripcion %}
+          <li class="descripcion-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <img
+          class="imagen"
+          src="{{ instrumento.imagen }}"
+          alt="{{ instrumento.nombre }}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+</body>
+-->

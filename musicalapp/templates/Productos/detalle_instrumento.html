@@ -1,0 +1,138 @@
+{% extends 'Conex/a.html' %} {% block content %}
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'musicalapp/detalle.css' %}" />
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" />
+  <script src="{% static 'js/detalle.js' %}"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
+<div style="padding-top: 120px" class="container">
+  <div class="aw">
+    <div class="col-lg-5 col-md-5">
+      <div class="main-image">
+        <img
+          id="thumbnail"
+          src="{{ instrumento.imagen }} "
+          alt="{{ instrumento.nombre }}"
+        />
+      </div>
+      <div class="pic-center">
+        {% include 'Conex/star.html' %}({{ cantidad_usuarios }})
+      </div>
+    </div>
+    <div class="col-lg-7 col-md-7">
+      <div class="section-heading">
+        <h2 class="title">{{ instrumento.nombre }}</h2>
+        <h6 class="menuh6">${{ instrumento.precio }}</h6>
+      </div>
+      <div class="section-body">
+        <h4 class="grey">{{ instrumento.texto }}</h4>
+        <div class="quantity">
+          <form
+            method="POST"
+            action="{% url 'musicalapp:agregar_al_carrito' id=instrumento.id %}"
+          >
+            {% csrf_token %}
+            <label for="cant">Cantidad:</label>
+            <input
+              id="cant"
+              type="number"
+              name="cant"
+              min="1"
+              value="1"
+            /><br /><br />
+            <input id="btn" type="submit" value="Agregar" />
+          </form>
+        </div>
+        <div class="product-info">
+          <h4>Marca:</h4>
+          <ul>
+            <li>
+              <a href="/instrumentos/marca/{{ instrumento.marca}}/" class="grey"
+                >{{ instrumento.marca }}</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="product-info">
+          <h4>Tipo:</h4>
+          <ul>
+            <li>
+              <a href="/instrumentos/{{ instrumento.tipo}}/" class="grey"
+                >{{ instrumento.tipo}}</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="product-info">
+          <h4>Características:</h4>
+        </div>
+        {% for item in instrumento.descripcion %}
+        <div class="product-info">
+          <i
+            class="fa-solid fa-circle-check"
+            style="color: #63e6be; font-size: 20px"
+          ></i>
+          <ul>
+            <li><a class="grey">{{ item }}</a></li>
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-left: 100px" class="container">
+  {% if user.is_authenticated %}
+  <h2 class="title">Calificación</h2>
+  <form method="post" class="fc">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ form.Puntuacion.label_tag }} {{ form.Puntuacion }}
+    </div>
+    <div class="form-group">
+      {{ form.Comentario.label_tag }} {{ form.Comentario }}
+    </div>
+    <button type="submit" id="cal">Enviar</button>
+    <a href="/eliminar-rating/{{ instrumento.id}}" id="cal1"> Eliminar </a>
+  </form>
+  {% else %}
+  <div style="padding-top: 50px" class="container">
+    <a href="/login/" style="text-decoration: none"
+      ><h2>Debes iniciar sesión para comentar sobre este producto.</h2></a
+    >
+  </div>
+  {% endif %}
+  <!-- Mostrar los comentarios existentes -->
+  <h2 style="padding-top: 10px" class="title">Comentarios</h2>
+  {% if ratings %}
+
+  <ul>
+    {% for rating in ratings %}
+    <div class="product-info">
+      <h4>{{ rating.ClienteID|upper }}</h4>
+      <ul>
+        <li class="com">({% include 'Conex/staruser.html' %})</li>
+      </ul>
+    </div>
+    <div class="product-info">
+      <ul>
+        <li class="com">{{ rating.Comentario }}</li>
+      </ul>
+    </div>
+
+    {% endfor %}
+  </ul>
+  {% else %}
+  <h4>No hay comentarios aún.</h4>
+  {% endif %}
+</div>
+{% endblock %}

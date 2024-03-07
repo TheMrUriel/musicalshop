@@ -1,0 +1,146 @@
+{% extends 'Conex/a.html' %} {% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {%load static%}
+  <link rel="stylesheet" href="{% static 'musicalapp/usuario.css'%}" />
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="center">
+    
+    <div class="container mt- mb-4">
+      <h1 style="padding-top: 120px; text-align:center; padding-bottom:20px">Datos del Usuario</h1>
+      <!-- Sección para mostrar los datos del usuario -->
+      <div class="aw">
+        <div class="col-md-8" >
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Nombre:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.nombre }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Apellidos:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.apellido }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Correo:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.correo }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Edad:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.edad }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Genero:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.genero }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Calle:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.calle }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Ciudad:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.ciudad }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Estado:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.estado }}</a></li>
+            </ul>
+          </div>
+
+          <div class="product-info">
+            <i style="font-weight: bold; font-size: 20px">Código Postal:</i>
+            <ul>
+              <li><a class="grey">{{ user.comprador.codigo_postal }}</a></li>
+            </ul>
+          </div>
+          <a href="/usuario/editar/"><button style="margin-left:10px; margin-top:20px">Editar</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-area">
+    <h1>Productos Calificados</h1>
+    <div class="w">
+      <section class="product-section" class="section-p1">
+        <div class="pro-collection">
+          {% if comentarios_instrumentos %}
+          
+            {% for instrumento, comentario,Puntuacion in comentarios_instrumentos %}
+            <div class="product-cart">
+                <a style= "text-decoration: none;" href ="{% url 'musicalapp:detalle_instrumento' id=instrumento.id %}">
+                <img src="{{ instrumento.imagen }}" alt="{{ instrumento.nombre }}" />
+                <span>{{ instrumento.marca }}</span>
+                <h4>{{ instrumento.nombre }}</h4>  
+              </div>
+            </a>
+                <div class="product-cart">
+                    <h5 style="color:#088178; font-size:20px">Calificación/Comentario:</h5>
+                    <div class="stars">
+                        <a style="color:black; font-weight: bold;">{{ username|upper }}(</a>
+                        {% if Puntuacion >= 1 %}
+                        <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+                        {% else %}
+                        <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                    
+                        {% if Puntuacion >= 2 %}
+                        <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+                        {% else %}
+                        <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                    
+                        {% if Puntuacion >= 3 %}
+                        <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+                        {% else %}
+                        <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                    
+                        {% if Puntuacion >= 4 %}
+                        <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+                        {% else %}
+                        <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                    
+                        {% if Puntuacion >= 5 %}
+                        <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+                        {% else %}
+                        <i class="fa-regular fa-star"></i>
+                        {% endif %}
+                        <a style="color:black; font-weight: bold;">)</a>
+                      </div>
+                    <h4 style="text-align: justify" >{{ comentario }}</h4>
+                    
+                 </div>
+
+              {% endfor %}
+              {% endif %}
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+{% endblock %}

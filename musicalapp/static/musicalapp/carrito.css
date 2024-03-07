@@ -1,0 +1,574 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap");
+
+.header,
+.table-striped {
+  background-color: #daf1ff;
+  opacity: 0.8;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+:focus {
+  outline: none;
+}
+
+/* necessary to give position: relative to parent. */
+input {
+  font: 15px/24px "Manrope", sans-serif;
+  color: #333;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  background: transparent;
+}
+
+:focus {
+  outline: none;
+}
+
+.size {
+  font-size: 11px;
+}
+
+.color {
+  font-size: 11px;
+}
+
+.product-data {
+  margin-right: 70px;
+}
+
+.add-to {
+  background-color: #ffcee4;
+  color: black;
+  font-size: 1.3rem;
+  border: 1px solid black;
+}
+
+.add-to:hover {
+  border: 1px solid #ff338f;
+}
+
+.add-to:focus {
+  border: 1px solid #ff7cb8;
+  box-shadow: none;
+}
+
+.text-grey {
+  color: #a39f9f;
+}
+
+.qty i {
+  font-size: 11px;
+}
+
+.fa-trash {
+  padding-left: 10px;
+}
+
+.quantity {
+  position: relative;
+  text-align: center;
+  align-items: center;
+}
+
+.effect {
+  border: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.effect ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff7cb8;
+  transition: 0.4s;
+}
+
+.effect:focus ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.title {
+  margin: 0 0 20px;
+  z-index: 10;
+  font-size: 45px;
+  font-weight: 700;
+  color: #000000;
+  padding-top: 40px;
+  padding-left: 150px;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+}
+h4 {
+  font-size: 20px;
+  color: #222;
+}
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+p {
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+.section-p1 {
+  padding: 40px 0;
+}
+.section-m1 {
+  margin: 40px 0;
+}
+
+button.normal {
+  font-size: 14px;
+  font-weight: 600px;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+button.normal:hover {
+  background-color: #088178;
+  color: #fff;
+}
+
+th {
+  font-size: 20px;
+  color: #000;
+}
+
+.aw {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1000px; /* Establece el ancho máximo deseado */
+  margin: 0 auto; /* Centra los elementos */
+}
+
+.f-box {
+  width: calc(20% - 20px); /* Establece el ancho de cada elemento */
+  margin-bottom: 20px; /* Añade un espacio entre los elementos */
+}
+#features .f-box:hover {
+  box-shadow: 10px 10px 54px rgba(0, 0, 0, 0.1);
+}
+#features .f-box img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#features .f-box h6 {
+  display: inline-block;
+  padding: 9px 8px 6px 8px;
+  line-height: 1;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #088178;
+  background-color: #fddde4;
+}
+#features .f-box:nth-child(2) h6 {
+  background-color: #cdebbc;
+}
+#features .f-box:nth-child(3) h6 {
+  background-color: #d1e8f2;
+}
+#features .f-box:nth-child(4) h6 {
+  background-color: #cdd4f8;
+}
+#features .f-box:nth-child(5) h6 {
+  background-color: #f6dbf6;
+}
+#features .f-box:nth-child(6) h6 {
+  background-color: #fff2e5;
+}
+
+/* feature section styles */
+
+.product-section .pro-collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 60px;
+}
+.product-section h1,
+.product-section p {
+  text-align: center;
+  position: relative;
+}
+.product-section .product-cart {
+  width: 280px;
+  border: 1px solid #eeecec;
+  padding: 13px;
+  margin-bottom: 30px;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.2s;
+}
+.product-section .product-cart:hover {
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
+}
+.product-section .product-cart img {
+  width: 100%;
+  border-radius: 25px;
+}
+.product-section .product-cart span {
+  color: #3b3b3b;
+  font-weight: 500;
+  line-height: 30px;
+}
+.product-section .product-cart h4 {
+  font-size: 18px;
+  color: rgb(41, 41, 41);
+}
+.product-section .product-cart .stars {
+  color: #e6ae2c;
+  padding: 6px 0;
+}
+.product-section .product-cart .price {
+  color: #088178;
+  padding: 4px 0;
+}
+.product-section .product-cart .buy-icon {
+  color: #088178;
+  background-color: #c7e9e75e;
+  padding: 15px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* off banner section styles */
+
+#off-banner {
+  background-image: url(images/banner/b2.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#off-banner h4 {
+  color: #eaebf0;
+}
+#off-banner h2 {
+  color: #eaebf0;
+  padding: 20px 0;
+}
+
+/* new arrival section styles 
+  this section gets the same styles 
+  in featured products section
+*/
+
+/* banners section styles */
+
+#banners {
+  margin: 0 60px;
+}
+#banners h2,
+h4,
+span {
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 0.09px rgb(0, 0, 0);
+  text-stroke: 1px black;
+}
+#banners .big-banners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#banners .big-banners div {
+  min-width: 580px;
+  margin: 15px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 25px;
+  background-size: cover;
+  backdrop-filter: blur(8%);
+}
+#banners .big-banners button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  color: rgb(248, 248, 248);
+  border: 1px solid rgb(248, 248, 248);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#banners .big-banners div:hover button {
+  background-color: #088178;
+  border: 1px solid #088178;
+}
+#banners .big-banners-1 {
+  background-image: url("https://www.teahub.io/photos/full/288-2882738_guitar-blue-christian-wallpaper-free-download-more-like.jpg");
+}
+#banners .big-banners-2 {
+  background-image: url("https://i.pinimg.com/originals/85/db/13/85db13362be3c44b0533383d5625cdf4.jpg");
+}
+#banners .big-banners-3 {
+  background-image: url("https://cecabass.files.wordpress.com/2009/10/p-bass-wall.jpg?w=2500&h=");
+}
+#banners .big-banners-4 {
+  background-image: url("https://png.pngtree.com/background/20230519/original/pngtree-brown-and-gold-drum-set-on-a-black-background-picture-image_2668332.jpg");
+}
+#banners .small-banners-1 {
+  background-image: url("https://media.istockphoto.com/id/1203781524/photo/vinyl-records-music-background-texture-80s-vintage-retro-acoustic-eighties-disco-gradient.webp?b=1&s=170667a&w=0&k=20&c=ut0Efy8-gne8kQuWqOn7rOWQbTwLproHrOyhadvo0xc=");
+}
+#banners .small-banners-2 {
+  background-image: url(images/banner/b4.jpg);
+}
+#banners .small-banners-3 {
+  background-image: url(images/banner/b18.jpg);
+}
+#banners .small-banners-4 {
+  background-image: url(images/banner/b18.jpg);
+}
+#banners .small-banners-5 {
+  background-image: url(images/banner/b18.jpg);
+}
+#banners .small-banners {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#banners .small-banners div {
+  min-width: 370px;
+  height: 200px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 25px;
+  background-size: cover;
+}
+#banners .small-banners h2 {
+  font-size: 25px;
+  -webkit-text-stroke: 0.09px rgb(0, 0, 0);
+  text-stroke: 1px black;
+}
+#banners .small-banners h5 {
+  color: #a5a5a5;
+  -webkit-text-stroke: 0.09px rgb(255, 255, 255);
+  text-stroke: 1px rgb(255, 255, 255);
+}
+
+/* newsletter section styles */
+
+h3 {
+  padding-bottom: 20px;
+  padding-left: 150px;
+}
+
+.col-md-8 .col-12 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 200px;
+}
+
+#newsletter {
+  background-image: url(images/banner/b14.png);
+  background-repeat: no-repeat;
+  background-position: 180px;
+  background-color: #041e42;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 75px;
+}
+#newsletter .newsletter-text h3 {
+  color: white;
+  font-size: 30px;
+  padding: 0 0 15px 0;
+}
+#newsletter .newsletter-text h5 {
+  color: rgb(151, 151, 151);
+  font-size: 17px;
+}
+#newsletter .newsletter-text h5 span {
+  color: rgb(216, 182, 29);
+}
+#newsletter .form input {
+  padding: 20px;
+  width: 350px;
+  height: 56px;
+  background-color: #d1d0d0;
+  border-radius: 6px 0 0 6px;
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+  margin-right: -4px;
+  margin-top: 1px;
+}
+#newsletter .form button {
+  margin-left: 0;
+  padding: 20px;
+  border: none;
+  width: 120px;
+  background-color: #088178;
+  color: white;
+  font-size: 17px;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+/* footer section styles */
+
+#footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 75px;
+  background-color: #ececec;
+}
+#footer div {
+}
+#footer p,
+#footer a {
+  color: rgb(109, 109, 109);
+  text-decoration: none;
+}
+#footer a:hover {
+  color: #088178;
+}
+#footer .about a {
+  display: block;
+  padding: 8px 0;
+}
+#footer .myaccount a {
+  display: block;
+  padding: 8px 0;
+}
+#footer .download img {
+  border: 1px solid #08817969;
+  border-radius: 7px;
+}
+
+.banner-area {
+  width: 100%;
+  height: 500px;
+  position: fixed;
+  top: 100px;
+  background-image: url(Fondo.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+.banner-area h2 {
+  padding-top: 8%;
+  font-size: 70px;
+  font-family: poppins;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
+}
+
+.content-area {
+  width: 100%;
+  position: relative;
+  top: 450px;
+  background: #ffffff;
+  height: 100%;
+}
+
+form {
+  margin-bottom: 50px;
+}
+
+.content-area h2 {
+  font-family: poppins;
+  letter-spacing: 4px;
+  padding-top: 30px;
+  font-size: 40px;
+  margin: 0;
+  color: #fff;
+}
+.content-area p {
+  padding: 2% 0px;
+  font-family: poppins;
+  line-height: 30px;
+}
+
+.fa-solid:hover {
+  color: #74c0fc;
+}
+
+.fa-solid {
+  color: #497980;
+}
+
+.fa-star {
+  color: #e6ae2c;
+  font-size: 20px;
+}
+
+#cal {
+  background: #0060c7;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.3s;
+  padding: 10px;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+#cal:hover {
+  background-color: #14b155;
+  color: #ffffff;
+}
+
+/* Anular estilos de enlaces de Bootstrap */
+a {
+  color: black !important; /* Heredar color de texto */
+  text-decoration: none !important; /* Eliminar subrayado */
+}
+
+a:hover {
+  /* Heredar color de texto al pasar el mouse */
+  text-decoration: none !important; /* Mantener subrayado eliminado al pasar el mouse */
+}
+
+* {
+  box-sizing: content-box !important;
+}
+
+h1,
+h2 {
+  font-size: 32px !important;
+}

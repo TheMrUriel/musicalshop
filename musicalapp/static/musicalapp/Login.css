@@ -1,0 +1,131 @@
+#login-container {
+  font-family: arial;
+  text-align: center;
+}
+body {
+  background-color: #000000;
+}
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  margin-top: 150px;
+}
+
+#login-container h1 {
+  color: #333;
+  margin-top: 10px;
+}
+
+#login-container h2 {
+  margin-top: 10px;
+  color: #333;
+  justify-content: center;
+}
+
+label {
+  font-family: arial;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  font-family: arial;
+  margin: auto;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  background-color: #afafaf;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition-duration: 0.5s;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+input[type="submit"]:hover {
+  font-size: 20px;
+  background-color: #8684bb;
+}
+
+#login-container a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+#login-container a:hover {
+  color: #e1420f;
+}
+
+/* Custom dropdown */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-dropdown select {
+  background-color: #0060c7;
+  color: #ffffff;
+  font-size: inherit;
+  padding: 0.5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: "";
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: 0.625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-dropdown::after {
+  color: rgba(0, 0, 0, 0.4);
+}

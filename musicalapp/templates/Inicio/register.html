@@ -1,0 +1,61 @@
+{% extends 'Conex/a.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'musicalapp/Login.css'%}" />
+<link rel="stylesheet" href="{% static 'musicalapp/b.css'%}" />
+<div id="login-container">
+  <form method="POST" autocomplete="off">
+    {% csrf_token %}
+    <h2>Registrarse</h2>
+
+    <label for="{{ registerform.nombre.id_for_label }}">Nombre:</label>
+    {{ registerform.nombre }}
+
+    <label for="{{ registerform.apellido.id_for_label }}">Apellido:</label>
+    {{ registerform.apellido }}
+    <label for="{{ registerform.username.id_for_label }}">Usuario:</label>
+    {{ registerform.username }}
+
+    <label for="{{ registerform.email.id_for_label }}">Correo:</label>
+    {{ registerform.email }}
+
+    <label for="{{ registerform.password1.id_for_label }}">Contraseña:</label>
+    {{ registerform.password1}}
+
+    <label for="{{ registerform.password2.id_for_label }}"
+      >Confirmar contraseña:</label
+    >
+    {{ registerform.password2}}
+    <label for="{{ registerform.edad.id_for_label }}">Edad:</label>
+    {{ registerform.edad }}
+
+    <label>Genero:</label>
+    <span class="custom-dropdown">
+      <label for="{{ registerform.genero.id_for_label }}"></label>
+      {{ registerform.genero }}
+    </span>
+    <h1 style="font-size: 30px">Domicilio</h1>
+    <label for="{{ registerform.calle.id_for_label }}">Calle:</label>
+    {{ registerform.calle }}
+
+    <label for="{{ registerform.ciudad.id_for_label }}">Ciudad:</label>
+    {{ registerform.ciudad }}
+
+    <label for="{{ registerform.estado.id_for_label }}">Estado:</label>
+    {{ registerform.estado }}
+
+    <label for="{{ registerform.codigo_postal.id_for_label }}"
+      >Código Postal:</label
+    >
+    {{ registerform.codigo_postal }}
+
+    <label for="{{ registerform.colonia.id_for_label }}">Colonia:</label>
+    {{ registerform.colonia }}
+
+    <label for="{{ registerform.numero_casa.id_for_label }}"
+      >Numero de casa:</label
+    >
+    {{ registerform.numero_casa }}
+    <input type="submit" value="Registrarse" />
+  </form>
+  <a href="/login/"> Iniciar Sesión </a>
+</div>
+{% endblock %}

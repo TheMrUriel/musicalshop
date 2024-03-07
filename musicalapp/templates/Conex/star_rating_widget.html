@@ -1,0 +1,33 @@
+{% load static %}
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_1" name="{{ widget.name }}"
+  value="0" {% if widget.value == 1 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_1"></label>
+</div>
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_1" name="{{ widget.name }}"
+  value="1" {% if widget.value == 1 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_1">&#9733;</label>
+</div>
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_2" name="{{ widget.name }}"
+  value="2" {% if widget.value == 2 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_2">&#9733;&#9733;</label>
+</div>
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_3" name="{{ widget.name }}"
+  value="3" {% if widget.value == 3 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_3">&#9733;&#9733;&#9733;</label>
+</div>
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_4" name="{{ widget.name }}"
+  value="4" {% if widget.value == 4 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_4">&#9733;&#9733;&#9733;&#9733;</label>
+</div>
+<div class="star-rating">
+  <input type="radio" id="{{ widget.attrs.id }}_5" name="{{ widget.name }}"
+  value="5" {% if widget.value == 5 %}checked{% endif %} />
+  <label for="{{ widget.attrs.id }}_5"
+    >&#9733;&#9733;&#9733;&#9733;&#9733;</label
+  >
+</div>

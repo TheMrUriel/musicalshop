@@ -1,0 +1,129 @@
+{% extends 'Conex/a.html' %} {% block content %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {%load static%}
+  <link rel="stylesheet" href="{% static 'musicalapp/Instrumentos.css'%}" />
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet">
+</head>
+<body>
+
+  <div class="banner-area" style="background-image: url({{ fondo_instrumento }}); padding-left:60px">
+    {% if tipo_instrumento %}
+        <h2>{{ tipo_instrumento }}</h2>
+    {% elif marca_instrumento %}
+      <h2>{{ marca_instrumento }}</h2>
+       
+    {% endif %}
+  </div>
+
+  <div class="content-area">
+    <div class="aww">
+      <section class="product-section" class="section-p1">
+        <h1 style=" padding: 20px;">Lista de productos</h1>
+        <form method="get">
+          <!-- Campo de búsqueda por nombre -->
+          <label for="buscar_nombre"><a style ="font-size: 20px; padding-left: 250px;">Nombre:</a></label>
+          <input style ="font-size: 15px;" type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}">
+          
+          <!-- Renderiza el formulario de ordenamiento -->
+          <label for="ordenar_por_precio"><a style ="font-size: 20px;">Ordenar:</a></label>
+          <select style ="font-size: 15px;" name="ordenar_por_precio" id="ordenar_por_precio">
+              <option value="puntuacion2" {% if request.GET.ordenar_por_precio == "puntuacion2" %} selected {% endif %}>Mas populares</option>    
+              <option value="puntuacion1" {% if request.GET.ordenar_por_precio == "puntuacion1" %} selected {% endif %}>Menos populares</option> 
+              <option value="">Alfabeticamente [A-Z]</option>
+              <option value="rebmon" {% if request.GET.ordenar_por_precio == "rebmon" %} selected {% endif %}>Alfabeticamente [Z-A]</option>
+              <option value="desc" {% if request.GET.ordenar_por_precio == "desc" %} selected {% endif %}>Precio: ↑</option>
+              <option value="asc" {% if request.GET.ordenar_por_precio == "asc" %} selected {% endif %}>Precio: ↓</option>
+          </select>
+          <button style ="font-size: 15px;" type="submit">Buscar</button>
+        </form>
+        <div class="pro-collection">
+
+          {% for instrumento in instrumentos %}
+          <div class="product-cart">
+            <a style= "text-decoration: none;" href ="{% url 'musicalapp:detalle_instrumento' id=instrumento.id %}">
+            <img src="{{ instrumento.imagen }}" alt="{{ instrumento.nombre }}" />
+            <span>{{ instrumento.marca }}</span>
+            <h4>{{ instrumento.nombre }}</h4>
+            <div class="stars">
+              {% if instrumento.Puntuacion >= 1 %}
+              <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+              {% else %}
+              <i class="fa-regular fa-star"></i>
+              {% endif %}
+          
+              {% if instrumento.Puntuacion >= 2 %}
+              <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+              {% else %}
+              <i class="fa-regular fa-star"></i>
+              {% endif %}
+          
+              {% if instrumento.Puntuacion >= 3 %}
+              <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+              {% else %}
+              <i class="fa-regular fa-star"></i>
+              {% endif %}
+          
+              {% if instrumento.Puntuacion >= 4 %}
+              <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+              {% else %}
+              <i class="fa-regular fa-star"></i>
+              {% endif %}
+          
+              {% if instrumento.Puntuacion >= 5 %}
+              <i class="fa-solid fa-star fa-spin" style="--fa-animation-duration: 3s; --fa-animation-timing: ease-in-out;"></i>
+              {% else %}
+              <i class="fa-regular fa-star"></i>
+              {% endif %}
+            </div>
+            <h4 class="price">${{ instrumento.precio }}</h4>
+            <a href="{% url 'musicalapp:uno_agregar_al_carrito' id=instrumento.id %}"><i class="fa-solid fa-cart-shopping buy-icon fa-beat" style="--fa-animation-duration: 2s;"  ></i></a>
+          </div>
+          {% endfor %}
+
+
+      </section>
+    </div>
+  </div>
+  
+</body>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<body>
+    <div class="container">
+      <h1>Lista de Instrumentos</h1>
+      {% for instrumento in instrumentos %}
+      <div class="instrumento">
+        <div class="nombre">{{ instrumento.nombre }}</div>
+        <div class="marca">{{ instrumento.marca }}</div>
+        <div class="precio">{{ instrumento.precio }}</div>
+        {% if instrumento.texto != 'N/A' %}
+        <div class="texto">{{ instrumento.texto }}</div>
+        {% endif %}
+        <ul class="descripcion">
+          {% for item in instrumento.descripcion %}
+          <li class="descripcion-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <img
+          class="imagen"
+          src="{{ instrumento.imagen }}"
+          alt="{{ instrumento.nombre }}"
+        />
+      </div>
+      {% endfor %}
+    </div>
+</body>
+-->
