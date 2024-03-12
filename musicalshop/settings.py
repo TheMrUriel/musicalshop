@@ -14,7 +14,7 @@ SECRET_KEY = "django-insecure-j=wk!sl$5h&_a^2$a@u9t+^%%q#*)7b_brj_!l1s__j438nub#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["54.165.106.26"]
+ALLOWED_HOSTS = ["34.216.181.211"]
 
 
 # Application definition
@@ -87,9 +87,9 @@ WSGI_APPLICATION = "musicalshop.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -132,7 +132,8 @@ MEDIA_URL="/media/"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 COMPRESS_ROOT = STATIC_URL
 
 STATICFILES_FINDERS = [
