@@ -28,7 +28,7 @@ fondo_instrumento ='https://wallpaperbat.com/img/6982-music-instruments-wallpape
 
 # Inicio
 def Home(request):
-    productos_populares = Instrumento.objects.order_by('-Puntuacion')[:6]
+    productos_populares = Instrumento.objects.order_by('-Puntuacion')[:5]
     
     return render(request, 'Inicio/Home.html', {'productos_populares': productos_populares})
 
