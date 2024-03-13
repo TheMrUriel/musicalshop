@@ -608,7 +608,7 @@ header {
   display: flex !important;
   align-items: center !important;
   padding: 0px 40px !important;
-  background-color: #94193c !important;
+  background-color: #11053c !important;
 }
 
 .logo {
@@ -702,7 +702,7 @@ header {
 /* ============================ DROP-DOWN-MENU STARTS ======================== */
 
 .navbar_container {
-  background-color: #94193c !important;
+  background-color: #11053c !important;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1) !important;
   position: relative !important;
   transition: all 0.5s ease !important;
@@ -723,7 +723,7 @@ header {
   padding-left: 40px !important;
   padding-right: 40px !important;
   transition: all 0.3s ease !important;
-  background-color: #94193c !important;
+  background-color: #11053c !important;
   border-bottom: 1px solid transparent !important;
   color: #ffffff !important;
 }
@@ -757,7 +757,7 @@ header {
 }
 
 .navbar_level_1_li:hover {
-  border-bottom: 1px solid #94193c !important;
+  border-bottom: 1px solid #11053c !important;
   background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -956,7 +956,7 @@ header {
   }
 
   .navbar_level_1_li:hover {
-    border-left: 3px solid #94193c !important;
+    border-left: 3px solid #11053c !important;
     border-bottom: none !important;
     background-color: rbga(0, 0, 0, 0.3) !important;
   }
