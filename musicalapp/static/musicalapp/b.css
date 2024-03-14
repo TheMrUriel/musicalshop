@@ -67,8 +67,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
-  max-width: 1000px; /* Establece el ancho máximo deseado */
+  max-width: 800px; /* Establece el ancho máximo deseado */
   margin: 0 auto; /* Centra los elementos */
 }
 

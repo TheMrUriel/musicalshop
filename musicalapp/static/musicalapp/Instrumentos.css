@@ -20,7 +20,7 @@ button.normal:hover {
 }
 
 .f-box {
-  width: calc(20% - 20px); /* Establece el ancho de cada elemento */
+  width: calc(25% - 25px); /* Establece el ancho de cada elemento */
   margin-bottom: 20px; /* Añade un espacio entre los elementos */
 }
 
