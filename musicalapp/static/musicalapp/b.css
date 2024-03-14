@@ -136,7 +136,9 @@
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
 }
 .product-section .product-cart img {
-  width: 100%;
+  width: 250px;
+  height: 300px;
+  max-width: none;
   border-radius: 25px;
 }
 .product-section .product-cart span {
