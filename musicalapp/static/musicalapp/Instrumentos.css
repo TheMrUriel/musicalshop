@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-/* global styles */
-
 .section-p1 {
   padding: 40px 0;
 }
@@ -127,11 +123,13 @@ button.normal:hover {
 
 form {
   margin-bottom: 50px;
+  margin-left: -150px;
+  margin-right: -150px;
 }
 
 .content-area h2 {
   font-family: arial;
-  letter-spacing: 4px;
+
   padding-top: 30px;
   font-size: 40px;
   margin: 0;
@@ -140,13 +138,12 @@ form {
 .content-area p {
   padding: 2% 0px;
   font-family: arial;
-  line-height: 30px;
 }
 
 button {
   width: 100px;
-  background: #0060c7;
-  font-size: 15px;
+  background: #00b4cc;
+  font-size: 20px !important;
   font-weight: 200;
   color: #ffffff;
   transition: all 0.3s;
@@ -184,4 +181,12 @@ button:hover {
 .fa-star {
   color: #e6ae2c;
   font-size: 20px;
+}
+
+input,
+select {
+  font-size: 20px !important;
+  margin-right: 30px;
+  border-radius: 8px;
+  border: 3px solid #00b4cc;
 }
