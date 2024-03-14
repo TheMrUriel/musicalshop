@@ -142,7 +142,7 @@ form {
 
 button {
   width: 100px;
-  background: #00b4cc;
+  background: #11053c;
   font-size: 20px !important;
   font-weight: 200;
   color: #ffffff;
@@ -188,5 +188,5 @@ select {
   font-size: 20px !important;
   margin-right: 30px;
   border-radius: 8px;
-  border: 3px solid #00b4cc;
+  border: 3px solid #11053c;
 }
