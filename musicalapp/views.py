@@ -28,7 +28,7 @@ fondo_instrumento ='https://wallpaperbat.com/img/6982-music-instruments-wallpape
 
 # Inicio
 def Home(request):
-    productos_populares = Instrumento.objects.order_by('-Puntuacion')[:5]
+    productos_populares = Instrumento.objects.order_by('-Puntuacion')[:6]
     
     return render(request, 'Inicio/Home.html', {'productos_populares': productos_populares})
 
@@ -163,6 +163,32 @@ def carrito(request):
 
     return render(request, 'Venta/carrito.html', {'instrumentos_en_carrito': instrumentos_en_carrito, 'montofinal': montofinal})
 
+@user_required
+def actualizar_cantidad(request, lista_id):
+    if request.method == 'POST':
+        lista = get_object_or_404(Lista, id=lista_id)
+        comprador_actual = Comprador.objects.get(usuario=request.user)
+        carrito, creado = Carrito.objects.get_or_create(comprador=comprador_actual)
+        instrumentos_en_carrito = carrito.intrumentos.all()
+
+        nueva_cantidad_str = request.POST.get('cantidad')
+        
+        # Verificar si la nueva cantidad es un número válido
+        if nueva_cantidad_str.isdigit():
+            nueva_cantidad = int(nueva_cantidad_str)
+            lista.cantidad = nueva_cantidad
+            lista.subtotal = lista.cantidad * lista.intrumento.precio
+            lista.save()
+
+            montofinal = sum(lista.subtotal for lista in instrumentos_en_carrito)
+
+            data  ={
+                'subtotal':  lista.subtotal,
+                'montofinal': montofinal,
+            }
+        else:
+            return redirect('musicalapp:carrito')
+    return JsonResponse(data)   # Cambia 'ruta_del_carrito' a la URL de tu vista de carrito
 
 def agregar_al_carrito(request, id):
     instrumento = get_object_or_404(Instrumento, id=id)

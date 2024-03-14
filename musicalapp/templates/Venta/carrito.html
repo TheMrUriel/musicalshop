@@ -5,147 +5,197 @@
   {% load static %}
 
   <link rel="stylesheet" href="{% static 'musicalapp/carrito.css' %}" />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-  />
+
   <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" />
   <script src="{% static 'js/carrito.js' %}"></script>
   <script src="https://www.paypal.com/sdk/js?client-id=AWYFiO3-dMYwQD01FcCWn4an7L2c6PWNh2bGZ8rFj8gNxjRViEpl8tx4DTOQ7Ugb4dnUql7d24PtjaKe&currency=MXN"></script>
 </head>
-
 <body>
-  <div class="center">
-    <div class="container mt- mb-4">
-      <div
-        class="d-flex justify-content-center row"
-        style="padding-left: 150px"
-      >
-        <div class="col-md-8" style="padding-top: 100px; text-align: center">
-          <h1 class="title">Carrito de compra</h1>
-          <div class="aw">
-            <div class="col-12">
-              {% if instrumentos_en_carrito %}
-              <table
-                class="table table-responsive table-striped"
-                style="
-                  order-radius: 35px;
-                  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.15);
-                "
+  <div
+    class="grid gap-6 p-6"
+    style="justify-content: center; padding-top: 150px"
+  >
+    <h1>CARRITO DE COMPRA</h1>
+    <div class="border shadow-sm rounded-lg">
+      {% if instrumentos_en_carrito %}
+      <table>
+        <thead>
+          <tr class="table-row-1">
+            <th class="w-[80px]"></th>
+            <th class="flex-grow">Producto</th>
+            <th class="w-20">Precio</th>
+            <th class="w-36">Cantidad</th>
+            <th class="w-20">Total</th>
+            <th class="w-[40px]"></th>
+          </tr>
+        </thead>
+        {% for lista in instrumentos_en_carrito %}
+        <tbody>
+          <tr class="table-row">
+            <td>
+              <img
+                src="{{ lista.intrumento.imagen }}"
+                alt="{{ lista.intrumento.nombre }}"
+                class="aspect-square rounded-md object-cover"
+                width="64"
+                height="64"
+              />
+            </td>
+            <td class="font-medium">{{ lista.intrumento.nombre }}</td>
+            <td>${{ lista.intrumento.precio }}MXM</td>
+            <td>
+              <div class="select-wrapper">
+                <form
+                  method="POST"
+                  action="{% url 'musicalapp:actualizar_cantidad' lista.id %}"
+                >
+                  {% csrf_token %}
+                  <input
+                    type="number"
+                    name="cantidad"
+                    id="cantidad_{{ lista.id }}"
+                    class="cantidad-input font-semibold"
+                    data-lista-id="{{ lista.id }}"
+                    value="{{ lista.cantidad }}"
+                    min="1"
+                    max="999"
+                  />
+                </form>
+              </div>
+            </td>
+            <td id="subtotal_{{ lista.id }}">${{ lista.subtotal }} MXM</td>
+            <td>
+              <form
+                method="POST"
+                action="{% url 'musicalapp:quitar_del_carrito' lista.id %}"
               >
-                <thead>
-                  <tr class="header">
-                    <th scope="col">Productos</th>
-                    <th scope="col"></th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col" class="text-center">SubTotal</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody
-                  class="d-flex flex-column align-items-center product-details"
-                >
-                  {% for lista in instrumentos_en_carrito %}
-                  <tr>
-                    <td class="item font-weight-bold">
-                      {{ lista.intrumento.nombre }}
-                    </td>
-                    <td class="item font-weight-bold">
-                      <img
-                        id="producto"
-                        style="
-                          max-width: 150px;
-                          max-height: 150px;
-                          order-radius: 35px;
-                          box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.15);
-                        "
-                        src="{{ lista.intrumento.imagen }} "
-                        alt="{{ lista.intrumento.nombre }}"
-                      />
-                    </td>
-                    <td class="price text-center">
-                      ${{ lista.intrumento.precio }} MXM
-                    </td>
-                    <td class="quantity">
-                      {{ lista.cantidad }}
-                      <span class="focus-border"></span>
-                    </td>
-                    <td>${{ lista.subtotal }}</td>
-                    <td>
-                      <form
-                        method="POST"
-                        action="{% url 'musicalapp:quitar_del_carrito' lista.id %}"
-                      >
-                        {% csrf_token %}
-                        <button class="btn btn-sm remove" type="submit">
-                          Quitar
-                          <i class="fa fa-trash mb-1 p-4 text-danger"></i>
-                        </button>
-                      </form>
-                    </td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-            <div class="col-md-12">
-              <h3 class="m-5">
-                Total: $<a style="text-decoration: none"
-                  >{{ montofinal }} MXM</a
-                >
-              </h3>
-
-              <h3 class="m-5">
-                <a
-                  href="{% url 'musicalapp:lista_instrumentos'%}"
-                  style="text-decoration: none"
-                  >Seguir comprando</a
-                >
-              </h3>
-              <h3 class="m-5">
-                <div id="paypal-button-container"></div>
-                <script montofinal="{{montofinal}}">
-                  paypal
-                    .Buttons({
-                      createOrder: function (data, actions) {
-                        return actions.order.create({
-                          purchase_units: [
-                            {
-                              amount: {
-                                value: "{{ montofinal }}",
-                              },
-                            },
-                          ],
-                        });
-                      },
-                      onApprove: function (data, actions) {
-                        return fetch("/ruta/hacia/completar_pago/", {
-                          method: "post",
-                        }).then(function () {
-                          // Redirigir al usuario después de completar el pago
-                          window.location.href =
-                            "{% url 'musicalapp:completar_pago' %}";
-                        });
-                      },
-                      style: {
-                        layout: "horizontal",
-                      },
-                    })
-                    .render("#paypal-button-container");
-                </script>
-              </h3>
-
-              {% else %}
-              <!-- Mostrar un mensaje si el carrito está vacío -->
-              <h2 style="padding-right: 100px">Carrito vacio.</h2>
-              {% endif %}
-            </div>
-          </div>
-        </div>
+                {% csrf_token %}
+                <button class="btn-icon" aria-label="Remove" type="submit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-4 w-4"
+                  >
+                    <path d="M3 6h18"></path>
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                  </svg>
+                </button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="text-2xl font-semibold mb-4 md:mb-0 opcs">
+        <a id="total-section">Total: ${{ montofinal }} MXM</a>
+        <a
+          class="seguircomprando"
+          href="{% url 'musicalapp:lista_instrumentos'%}"
+          style="text-decoration: none; padding-left: 100px"
+          >Seguir comprando</a
+        >
       </div>
+
+      <h3 class="m-5">
+        <div id="paypal-button-container"></div>
+        <script montofinal="{{montofinal}}">
+          paypal
+            .Buttons({
+              createOrder: function (data, actions) {
+                return actions.order.create({
+                  purchase_units: [
+                    {
+                      amount: {
+                        value: "{{ montofinal }}",
+                      },
+                    },
+                  ],
+                });
+              },
+              onApprove: function (data, actions) {
+                return fetch("/ruta/hacia/completar_pago/", {
+                  method: "post",
+                }).then(function () {
+                  // Redirigir al usuario después de completar el pago
+                  window.location.href =
+                    "{% url 'musicalapp:completar_pago' %}";
+                });
+              },
+              style: {
+                layout: "horizontal",
+              },
+            })
+            .render("#paypal-button-container");
+        </script>
+      </h3>
+      {% else %}
+      <div class="text-2xl font-semibold mb-4 md:mb-0 opcs">
+        <a
+          class="seguircomprando"
+          href="{% url 'musicalapp:lista_instrumentos'%}"
+          style="text-decoration: none; text-align: center; padding-left: 30px"
+          >Seguir comprando</a
+        >
+      </div>
+      <!-- Mostrar un mensaje si el carrito está vacío -->
+      <h2 style="text-align: center">Carrito vacio.</h2>
+      {% endif %}
     </div>
   </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".cantidad-input").on("input", function () {
+      var listaId = $(this).data("lista-id");
+      var nuevaCantidad = $(this).val();
+
+      // Verificar si la nueva cantidad es igual a cero
+      if (parseInt(nuevaCantidad) !== 0) {
+        // Realizar una solicitud AJAX para actualizar la cantidad
+        $.ajax({
+          url: "/actualizar-cantidad/" + listaId + "/",
+          method: "POST",
+          data: {
+            cantidad: nuevaCantidad,
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: function (data) {
+            // Actualizar el subtotal en la interfaz de usuario si es necesario
+            var nuevoSubtotal = data.subtotal;
+            $("#subtotal_" + listaId).text("$" + nuevoSubtotal + " MXM");
+
+            // Actualizar el total
+            var nuevoTotal = data.montofinal;
+            $("#total-section").text("Total: $" + nuevoTotal + " MXM");
+
+            // Actualizar el total para PayPal
+            $("#total-section-paypal").text(nuevoTotal);
+
+            // Redirigir a la página de inicio
+            window.location.href = "{% url 'musicalapp:carrito' %}";
+          },
+        });
+      }
+    });
+    // Evitar que el formulario se envíe al presionar Enter
+    $(".cantidad-input")
+      .closest("form")
+      .submit(function (event) {
+        event.preventDefault();
+      });
+  });
+</script>
 
 {% endblock %}
