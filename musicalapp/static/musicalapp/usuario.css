@@ -168,13 +168,11 @@ button.normal:hover {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  max-width: 1000px; /* Establece el ancho máximo deseado */
   margin: 0 auto; /* Centra los elementos */
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
   transition: box-shadow 0.2s;
 }
 
-.aw:hover {
+.col-md-8:hover {
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.2s;
 }
@@ -296,6 +294,7 @@ form {
 .col-md-8 {
   padding: 11;
   background-color: #4b6f9014;
+  transition: box-shadow 0.2s;
 }
 
 button {
