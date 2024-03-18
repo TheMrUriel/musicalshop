@@ -126,18 +126,14 @@ def usuario_page(request):
 
 
 @user_required
-def usuario_editar(request):
-    usuario = request.user  # Obtén el usuario actual
-    comprador = usuario.comprador  # Obtén el perfil del comprador asociado al usuario
-
+def editar_usuario(request):
     if request.method == 'POST':
-        form = CompradorForm(request.POST, instance=comprador)
+        form = UsuarioForm(request.POST, instance=request.user.comprador)
         if form.is_valid():
-            form.save()  # Guarda los datos actualizados del comprador
-            return redirect('musicalapp:usuario_page')  # Redirecciona a la página deseada después de la edición
+            form.save()
+            return redirect('musicalapp:usuario_page')  # Redirecciona a la página de perfil después de guardar los cambios
     else:
-        form = CompradorForm(instance=comprador)  # Crea el formulario con los datos actuales del comprador
-
+        form = UsuarioForm(instance=request.user.comprador)
     return render(request, 'Inicio/usuario_editar.html', {'form': form})
 
 

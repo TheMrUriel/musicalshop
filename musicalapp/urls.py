@@ -18,7 +18,7 @@ urlpatterns = [
 
     path('usuario/', usuario_page, name="usuario_page"),
 
-    path('usuario/editar/',usuario_editar, name="usuario_editar"),
+    path('usuario/editar/',editar_usuario, name="editar_usuario"),
     path('usuario/historial/',historial,name="historial"),
 
 

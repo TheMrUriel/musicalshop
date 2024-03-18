@@ -18,6 +18,10 @@ class StarRatingWidget(forms.widgets.Widget):
         context['widget']['value'] = value
         return context
 
+class UsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Comprador
+        fields = ['nombre', 'apellido', 'edad', 'genero', 'calle', 'ciudad', 'estado', 'codigo_postal']
 
 
 class RatingForm(forms.ModelForm):
