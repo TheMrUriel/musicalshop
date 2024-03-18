@@ -336,3 +336,19 @@ button:hover {
   color: #e6ae2c;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 768px) {
+  .product-section .pro-collection {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 60px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .product-section .pro-collection {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 60px;
+  }
+}
