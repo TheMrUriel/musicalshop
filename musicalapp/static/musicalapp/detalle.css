@@ -82,12 +82,16 @@
 }
 
 .com {
-  color: #000000;
+  color: #548b98;
   font-size: 20px;
   text-align: left;
 }
 .com:hover {
   text-decoration: none;
+}
+
+textarea#id_Comentario {
+  font-size: 18px;
 }
 
 .fc {
