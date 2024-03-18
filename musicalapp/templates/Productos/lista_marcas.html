@@ -24,7 +24,7 @@
         <form class="marcas" method="get">
           <input type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}" placeholder="Nombre">
 
-          <select name="ordenar_por_precio" id="ordenar_por_precio">
+          <select name="ordenar_por_precio" id="ordenar_por_precio" style="font-size: 22px;">
               <option value="">Alfabeticamente [A-Z]</option>
               <option value="rebmon" {% if request.GET.ordenar_por_precio == "rebmon" %} selected {% endif %}>Alfabeticamente [Z-A]</option>
               <option value="puntuacion2" {% if request.GET.ordenar_por_precio == "puntuacion2" %} selected {% endif %}>Mas populares</option>    
