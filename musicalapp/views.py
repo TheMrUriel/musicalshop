@@ -24,7 +24,7 @@ def prueba(request, id):
     context = {'instrumento': instrumento}
     return render(request, 'Conex/a.html', context)
 
-fondo_instrumento ='https://wallpaperbat.com/img/6982-music-instruments-wallpaper.jpg'
+fondo_instrumento ='https://c4.wallpaperflare.com/wallpaper/346/873/116/music-guitar-instrumento-studio-wallpaper-preview.jpg'
 
 # Inicio
 def Home(request):
@@ -381,7 +381,7 @@ def detalle_instrumento(request, id):
 def instrumentos_accesorios(request):
     instrumentos_accesorios = Instrumento.objects.filter(tipo='accesorios')
     tipo_instrumento = 'Accesorios'
-    fondo_instrumento = 'https://img.freepik.com/free-photo/volumetric-musical-background-with-treble-clef-notes-generative-ai_169016-29576.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1708214400&semt=ais'
+    fondo_instrumento = 'https://media.istockphoto.com/id/1203781524/photo/vinyl-records-music-background-texture-80s-vintage-retro-acoustic-eighties-disco-gradient.webp?b=1&s=170667a&w=0&k=20&c=ut0Efy8-gne8kQuWqOn7rOWQbTwLproHrOyhadvo0xc='
     for instrumento in instrumentos_accesorios:
         instrumento.descripcion = instrumento.descripcion.replace("[", "").replace("]", "").split(", ")
 
@@ -393,7 +393,7 @@ def instrumentos_accesorios(request):
 def instrumentos_alientos(request):
     instrumentos_alientos = Instrumento.objects.filter(tipo='alientos')
     tipo_instrumento = 'Instrumentos de viento'
-    fondo_instrumento = 'https://p0.piqsels.com/preview/857/353/296/music-saxophone-summer-gold-thumbnail.jpg'
+    fondo_instrumento = 'https://media.istockphoto.com/id/510081830/es/foto/manos-trompeteros.jpg?s=612x612&w=0&k=20&c=k7p9ZlRrFO0mHLtC8PcwWL7iOlGP6sNUSxmEIHvcYI8='
     for instrumento in instrumentos_alientos:
         instrumento.descripcion = instrumento.descripcion.replace("[", "").replace("]", "").split(", ")
 
