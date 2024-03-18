@@ -143,12 +143,11 @@ def usuario_editar(request):
 
 @user_required
 def historial(request):
-    # Obtener todas las compras del historial
-    historial_compras = HistorialCompra.objects.all()
+    # Filtrar el historial de compras por el usuario actual
+    historial_compras = HistorialCompra.objects.filter(comprador__usuario=request.user)
 
-    # Renderizar el template con el historial de compras
+    # Renderizar el template con el historial de compras del usuario actual
     return render(request, 'Inicio/historial.html', {'historial_compras': historial_compras})
-
 
 @user_required
 def carrito(request):
@@ -323,11 +322,17 @@ def lista_marcas(request):
 
 
 def eliminar_comentario_y_rating(request, id):
+    # Obtener el instrumento
     instrumento = get_object_or_404(Instrumento, id=id)
-    Ratings.objects.filter(InstrumentosID=instrumento).delete()
-    # Puedes agregar aquí la lógica para eliminar el comentario del instrumento si es necesario
-    return redirect('musicalapp:detalle_instrumento', id=id)
 
+    # Obtener el comprador actual
+    comprador_actual = get_object_or_404(Comprador, usuario=request.user)
+
+    # Filtrar y eliminar el rating del comprador actual para el instrumento dado
+    Ratings.objects.filter(ClienteID=comprador_actual, InstrumentosID=instrumento).delete()
+
+    
+    return redirect('musicalapp:detalle_instrumento', id=id)
 
 def detalle_instrumento(request, id):
     instrumento = get_object_or_404(Instrumento, id=id)
