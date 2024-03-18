@@ -20,15 +20,11 @@
   <div class="content-area">
     <div class="aww">
       <section class="product-section" class="section-p1">
-        <h1 style=" padding: 20px;">Lista de productos</h1>
-        <form method="get">
-          <!-- Campo de búsqueda por nombre -->
-          <label for="buscar_nombre"><a style ="font-size: 20px; padding-left: 250px;">Nombre:</a></label>
-          <input style ="font-size: 15px;" type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}">
-          
-          <!-- Renderiza el formulario de ordenamiento -->
-          <label for="ordenar_por_precio"><a style ="font-size: 20px;">Ordenar:</a></label>
-          <select style ="font-size: 15px;" name="ordenar_por_precio" id="ordenar_por_precio">
+        <h1 style=" padding: 20px; font-size:45px">Lista de productos</h1>
+        <form class="marcas" method="get">
+          <input type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}" placeholder="Nombre">
+
+          <select name="ordenar_por_precio" id="ordenar_por_precio">
               <option value="">Alfabeticamente [A-Z]</option>
               <option value="rebmon" {% if request.GET.ordenar_por_precio == "rebmon" %} selected {% endif %}>Alfabeticamente [Z-A]</option>
               <option value="puntuacion2" {% if request.GET.ordenar_por_precio == "puntuacion2" %} selected {% endif %}>Mas populares</option>    
@@ -36,7 +32,9 @@
               <option value="desc" {% if request.GET.ordenar_por_precio == "desc" %} selected {% endif %}>Precio: ↑</option>
               <option value="asc" {% if request.GET.ordenar_por_precio == "asc" %} selected {% endif %}>Precio: ↓</option>
           </select>
-          <button style ="font-size: 15px;" type="submit">Buscar</button>
+          <button type="submit" class="searchButton">
+            <i style="color:white" class="fa fa-search"></i>
+          </button>  
         </form>
         <div class="pro-collection">
 

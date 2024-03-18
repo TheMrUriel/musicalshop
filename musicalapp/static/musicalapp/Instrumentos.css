@@ -185,8 +185,43 @@ button:hover {
 
 input,
 select {
-  font-size: 20px !important;
-  margin-right: 30px;
-  border-radius: 8px;
+  font-size: 22px;
+  margin-right: -35px;
+  border-radius: 50px;
   border: 3px solid #11053c;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #11053c;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchButton {
+  width: 40px;
+  height: 41px;
+  border: 1px solid #11053c;
+  background: #11053c;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.marcas {
+  margin-left: 28% !important;
 }

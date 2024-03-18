@@ -20,17 +20,13 @@
   <div class="content-area">
     <div class="aww">
       <section class="product-section" class="section-p1">
-        <h1 style=" padding: 20px;">Lista de productos</h1>
+        <h1 style=" padding: 20px; font-size:45px">Lista de productos</h1>
         <form method="get">
+          <input  class="menuproducto"  type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}" placeholder="Nombre">
 
-          <label for="buscar_nombre"><a style ="font-size: 20px; padding-left: 100px;">Nombre:</a></label>
-          <input class="menuproducto" style ="font-size: 15px;" type="text" id="buscar_nombre" name="buscar_nombre" value="{{ request.GET.buscar_nombre }}">
-          
-          <label for="buscar_marca"><a style ="font-size: 20px;">Marca:</a></label>
-          <input style ="font-size: 15px;" type="text" id="buscar_marca" name="buscar_marca" value="{{ request.GET.buscar_marca }}">
-
-          <label for="ordenar_por_precio"><a style ="font-size: 20px;">Ordenar:</a></label>
-          <select style ="font-size: 15px;" name="ordenar_por_precio" id="ordenar_por_precio">
+          <input type="text" id="buscar_marca" name="buscar_marca" value="{{ request.GET.buscar_marca }}" placeholder="Marca">
+ 
+          <select  name="ordenar_por_precio" id="ordenar_por_precio">
               <option value="">Alfabeticamente [A-Z]</option>
               <option value="rebmon" {% if request.GET.ordenar_por_precio == "rebmon" %} selected {% endif %}>Alfabeticamente [Z-A]</option>
               <option value="puntuacion2" {% if request.GET.ordenar_por_precio == "puntuacion2" %} selected {% endif %}>Mas populares</option>    
@@ -38,7 +34,9 @@
               <option value="desc" {% if request.GET.ordenar_por_precio == "desc" %} selected {% endif %}>Precio: ↑</option>
               <option value="asc" {% if request.GET.ordenar_por_precio == "asc" %} selected {% endif %}>Precio: ↓</option>
           </select>
-          <button style ="font-size: 15px;" type="submit">Filtrar</button>
+          <button type="submit" class="searchButton">
+            <i style="color:white" class="fa fa-search"></i>
+          </button>  
         </form>
         <div class="pro-collection">
 
