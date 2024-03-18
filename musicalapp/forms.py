@@ -19,6 +19,9 @@ class StarRatingWidget(forms.widgets.Widget):
         return context
 
 class UsuarioForm(forms.ModelForm):
+    # Definir el campo de género como un campo de selección con opciones específicas
+    genero = forms.ChoiceField(choices=[('Masculino', 'Masculino'), ('Femenino', 'Femenino'), ('Otro', 'Otro')])
+
     class Meta:
         model = Comprador
         fields = ['nombre', 'apellido', 'edad', 'genero', 'calle', 'ciudad', 'estado', 'codigo_postal']
