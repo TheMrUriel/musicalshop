@@ -293,8 +293,13 @@ form {
   line-height: 30px;
 }
 
+.col-md-8 {
+  padding: 11;
+  background-color: #4b6f9014;
+}
+
 button {
-  width: 200px;
+  width: 256px;
   background: #0060c7;
   font-size: 20px;
   color: #ffffff;
