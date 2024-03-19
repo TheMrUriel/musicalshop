@@ -75,7 +75,7 @@
               <i class="fa-regular fa-star"></i>
               {% endif %}
             </div>
-            <h4 class="price">${{ instrumento.precio }}</h4>
+            <h4 class="price">${{ instrumento.precio }} MXM</h4>
             <a href="{% url 'musicalapp:uno_agregar_al_carrito' id=instrumento.id %}"><i class="fa-solid fa-cart-shopping buy-icon fa-beat" style="--fa-animation-duration: 2s;"  ></i></a>
           </div>
           {% endfor %}
